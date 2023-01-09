@@ -1,0 +1,25 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const ContactManager = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <ul>
+        {props.contacts.map((contact) => (
+          <li key={contact.id}>{contact.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+ContactManager.propTypes = {
+  title: PropTypes.string.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
+export default ContactManager;
