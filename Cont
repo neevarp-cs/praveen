@@ -1,0 +1,62 @@
+import React, { useState } from 'react';
+
+const ContactForm = () => {
+  const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+  });
+
+  const handleChange = (event) => {
+    setFormState({
+      ...formState,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Implement submission logic here
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="firstName">First Name:</label>
+      <input
+        type="text"
+        name="firstName"
+        value={formState.firstName}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="lastName">Last Name:</label>
+      <input
+        type="text"
+        name="lastName"
+        value={formState.lastName}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        value={formState.email}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="phone">Phone:</label>
+      <input
+        type="text"
+        name="phone"
+        value={formState.phone}
+        onChange={handleChange}
+      />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default ContactForm;
